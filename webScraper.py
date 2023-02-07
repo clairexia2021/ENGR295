@@ -29,7 +29,7 @@ def webscraper(title_id, movie):
     return review_df
 
 
-if __name__ == '__main__':
+def scraper_for_all():
     total_review = pd.DataFrame(columns=['movie', 'title', 'star', 'review'])
     with open('movie_id.csv') as csv_file:
         movies = csv.reader(csv_file, delimiter=',')
@@ -39,3 +39,7 @@ if __name__ == '__main__':
             total_review = pd.concat([total_review, sub_review], ignore_index=True)
 
     total_review.to_csv("reviews.csv", sep='\t')
+
+
+if __name__ == '__main__':
+    scraper_for_all()
