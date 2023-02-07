@@ -38,7 +38,7 @@ def scraper_for_all():
             sub_review = webscraper(row[0], row[1])
             total_review = pd.concat([total_review, sub_review], ignore_index=True)
 
-    total_review.to_csv("reviews.csv", sep='\t')
+    total_review.to_csv("reviews.csv", sep=',')
 
 
 if __name__ == '__main__':
