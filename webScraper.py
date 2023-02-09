@@ -19,11 +19,12 @@ def webscraper(title_id, movie):
         star = content.find("span", class_='rating-other-user-rating')
         if star is None:
             continue
+        star = star.text.strip()[:-3]
         review = content.find("div", class_='text show-more__control')
         if review is None:
             review = content.find("div", class_='text show-more__control clickable')
 
-        res = pd.DataFrame([[movie, review_title.text.strip(), star.text.strip(), review.text.strip()]], columns=['movie', 'title', 'star', 'review'])
+        res = pd.DataFrame([[movie, review_title.text.strip(), star, review.text.strip()]], columns=['movie', 'title', 'star', 'review'])
         review_df = pd.concat([review_df, res], ignore_index=True)
 
     return review_df
