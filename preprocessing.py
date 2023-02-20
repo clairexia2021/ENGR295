@@ -39,7 +39,7 @@ def preprocessing():
 
     reviews['filtered_review'] = filtered_review
 
-    # reviews.to_csv("reviews_filtered.csv", sep=',', index=False)
+    reviews.to_csv("reviews_filtered.csv", sep=',', index=False)
 
     # Most Common words
     counter = Counter(corpus)
